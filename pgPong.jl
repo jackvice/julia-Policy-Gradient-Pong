@@ -169,7 +169,7 @@ function weightsUpdate(weights,learningRate, decayRate, expectationGsquared, gBa
 	z1 = convert(Array{Float32},(learningRate * tempGradient)) # make knet later
 	z2 = convert(Array{Float32},(sqrt.(expectationGsquared[i] .+ e)))
 	z3 = z1 ./ z2
-        z3 = convert(KnetArray{Float32},z3)
+        z3 = convert(Array{Float32},z3)
         if i == 2
             weights[i] = weights[i] + vec(z3)
         else
